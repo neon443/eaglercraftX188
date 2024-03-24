@@ -13,7 +13,6 @@
 		<meta property="og:image" content="favicon.png" />
 		<link type="image/png" rel="shortcut icon" href="favicon.png" />
 		<script type="text/javascript" src="classes.js"></script>
-		<script type="text/javascript" src="fix-webm-duration.js"></script>
 		<script type="text/javascript">
 			"use strict";
 			window.addEventListener("load", () => {
@@ -23,13 +22,19 @@
 					
 					// %%%%%%%%% launch options %%%%%%%%%%%%
 					
+					const relayId = Math.floor(Math.random() * 3);
 					window.eaglercraftXOpts = {
+						demoMode: false,
 						container: "game_frame",
 						assetsURI: "assets.epk",
 						localesURI: "lang/",
+						worldsDB: "worlds",
 						servers: [
-							{ serverName: "Asspixel", serverAddress: "wss://web.asspixel.net/CAP/", hideAddress: false },
-							{ serverName: "to request a server to add, email me", serverAddress: "vape.master.69@hotmail.com", hideAddress: false }
+                            { serverName: "Asspixel", serverAddress: "wss://web.asspixel.net/CAP/", hideAddress: false },
+                            { serverName: "to request a server to add, email me", serverAddress: "vape.master.69@hotmail.com", hideAddress: false }
+						],
+						relays: [
+                            { addr: "wss://eaglerrelay.glitch.me", comment: "Hellscaped LAN relay", primary: relayId == 0 }
 						]
 					};
 					
@@ -48,16 +53,16 @@
 			});
 		</script>
 	</head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6R79TC88DQ"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6R79TC88DQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-		gtag('config', 'G-6R79TC88DQ');
-	</script>
-	<!-- Google tag (gtag.js) -->
+        gtag('config', 'G-6R79TC88DQ');
+    </script>
+    <!-- Google tag (gtag.js) -->
 	<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
 	</body>
 </html>
